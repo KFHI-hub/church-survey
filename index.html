@@ -114,6 +114,17 @@ function sendToForm(result, sc){
   } catch (e) {}
 }
 
+
+const SIGNUP = {
+  url: "https://docs.google.com/forms/d/e/1FAIpQLSffEh7o4TqodqRRNtq2fwp3K9vI5Zb8gWCXxjFiTdBQaKqckQ/viewform",
+  church: "entry.681576910", result: "entry.1294947488"
+};
+function signupUrl(){
+  const q = new URLSearchParams({ usp: "pp_url" });
+  if (S.church) q.append(SIGNUP.church, S.church);
+  if (S.result) q.append(SIGNUP.result, S.result);
+  return SIGNUP.url + "?" + q.toString();
+}
 function go(step){ S.step = step; render(); window.scrollTo({ top: 0 }); }
 
 function compute(){
@@ -202,7 +213,7 @@ function render(){
       ${secs}
       <p class="note">${esc(r.note)}</p>
       <div class="actions">
-        <a class="btn" href="${D.form}" target="_blank" rel="noopener">'한국교회 사회봉사 가이드북' 사전 신청</a>
+        <a class="btn" href="${esc(signupUrl())}" target="_blank" rel="noopener">'한국교회 사회봉사 가이드북' 사전 신청</a>
         <button class="btn ghost" id="again">테스트 다시하기</button>
       </div>
     </section>`;
