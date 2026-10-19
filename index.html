@@ -2,6 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta property="og:type" content="website">
 <meta property="og:title" content="한국교회 사회봉사 자가진단">
@@ -19,15 +20,10 @@ body{margin:0}
 :root{
   --bg:#ffffff; --paper:#f4f8f5; --ink:#1d2a22; --muted:#5f6f66; --line:#dbe6df;
   --green:#02783c; --green-ink:#ffffff; --green-soft:#e3f1e8; --blue:#4d80bf;
+  color-scheme:light;
   --display:"Gowun Batang","Noto Serif KR",serif;
   --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#111814; --paper:#18221c; --ink:#e6eee9; --muted:#9aaba1; --line:#2a3a31;
-  --green:#3fae6e; --green-ink:#0b1510; --green-soft:#1d3427; --blue:#86aee0; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#111814; --paper:#18221c; --ink:#e6eee9; --muted:#9aaba1; --line:#2a3a31;
-  --green:#3fae6e; --green-ink:#0b1510; --green-soft:#1d3427; --blue:#86aee0; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px;word-break:keep-all}
@@ -36,7 +32,7 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
 p{margin:0}
 .btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:700;border-radius:999px;padding:14px 22px;
   background:var(--green);color:var(--green-ink);display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;width:100%;font-size:17px}
-.btn:hover{filter:brightness(1.06)}
+
 .btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green)}
 .btn:focus-visible,.opt:focus-visible,.back:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
 .screen{display:flex;flex-direction:column;gap:22px}
@@ -67,7 +63,7 @@ input[type=text]::placeholder{color:var(--muted)}
 .opts{display:flex;flex-direction:column;gap:10px}
 .opt{appearance:none;font:inherit;text-align:left;cursor:pointer;padding:16px 18px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font-size:17px;display:flex;align-items:center;gap:12px;transition:border-color .15s,background .15s}
 .opt .dot{flex:none;width:20px;height:20px;border-radius:50%;border:2px solid var(--line)}
-.opt:hover{border-color:var(--green)}
+@media (hover:hover){.btn:hover{filter:brightness(1.06)}.opt:hover{border-color:var(--green)}}
 .opt.sel{border-color:var(--green);background:var(--green-soft)}
 .opt.sel .dot{border-color:var(--green);background:radial-gradient(var(--green) 45%,transparent 50%)}
 
